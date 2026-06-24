@@ -1,0 +1,68 @@
+# ==========================================
+# PROJECT 1 - USER INPUT VALIDATION
+# ==========================================
+# Version 1
+# - Initial version of the project.
+# =========================================
+
+while True:
+    first_name = input('Hello, what is your name?')
+    if not first_name.isalpha():
+        print('''Invalid name. 
+Name should only include letters
+''')
+    else:
+        first_name = first_name.capitalize()
+        break
+
+while True:
+    last_name = input(f'Whats your last name, {first_name}?')
+    if not last_name.isalpha():
+        print('''Invalid name.
+Name should only include letters
+''')
+    else:
+        last_name = last_name.capitalize()
+        break
+
+while True:
+    age = input(f'How old are you {first_name} {last_name}?')
+    if not age.isdecimal():
+        print('''Invalid age.
+Age should only include numbers
+''')
+    elif int(age) < 14:
+        print('''User is too young.
+Must be 14 years or older to register
+''')
+    else:
+        break
+
+while True:
+    education = input('''Whats your education level?
+A: Some Highschool
+B: Highschool Diploma
+C: Some College
+D: Associate Degree
+E: Bachelor's Degree
+F: Graduate's Degree
+''').lower()
+    if not len(education) == 1 or not education.isalpha() or education not in ['a', 'b', 'c', 'd', 'e', 'f']:
+        print('''Please answer in one letter, A through F
+''')
+    else:
+        if education == 'a':
+            education = 'Some Highschool'
+        elif education == 'b':
+            education = 'Highschool Diploma'
+        elif education == 'c':
+            education = 'Some College'
+        elif education == 'd':
+            education = 'Associate Degree'
+        elif education == 'e':
+            education = "Bachelor's Degree"
+        elif education == 'f':
+            education = "Graduate's Degree"
+        break
+
+print(f'{first_name} {last_name} is {age} years old, and has an education level of: {education}')
